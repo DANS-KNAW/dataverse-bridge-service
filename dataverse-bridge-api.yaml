@@ -1,0 +1,513 @@
+openapi: 3.0.0
+servers:
+- url: 'http://127.0.0.1:8592/api'
+info:
+  description: |
+    A bridge for Archiving Dataverse dataset to Digital Archive Repository (DAR) via the SWORD v2.0 protocol.\
+    [Dataverse Bridge Github](https://github.com/DANS-KNAW/dataverse-bridge-service).
+  version: "1.0.0"
+  title: Dataverse Bridge to Digital Archive Repository (DAR)
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: eko.indarto@dans.knaw.nl
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+- name: "Archiving"
+  description: "Archiving-related operation"
+- name: "Plugins"
+  description: "A plugin of DAR"
+- name: 'DAR IRI'
+  description: "Digital Archive Repository Configuration"
+- name: "Archiving Auditlog"
+  description: "The dataverse bridge auditlog records"
+- name: "PID Register"
+  description: "Da|ra, DOI"
+paths:
+  /archiving:
+    post:
+      tags:
+      - Archiving
+      summary: Operation to Ingest dataset to DAR
+      operationId: ingestToDar
+      parameters:
+      - name: api_key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: skipDarAuthPreCheck
+        in: header
+        required: false
+        description: >-
+          When the request comes from machine to machine, it is likely doesn't
+          need authentication check of DAR credentials before ingest data.
+        schema:
+          type: boolean
+      - name: sync
+        in: header
+        required: false
+        description: >-
+          By default, the archiving process is done using async process. However some process need in a scync way.
+        schema:
+          type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestData'
+        description: Dataset object that needs to be added to the Archived's table.
+        required: true
+      responses:
+        '201':
+          description: Dataset succesfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Archiving'
+        '400':
+          description: Dataset couldn't have been created.
+        '405':
+          description: Invalid input
+  /archiving/state:
+    get:
+      tags:
+      - Archiving
+      summary: Operation to retrive a state of an Archived dataset
+      description: Operation to retrive a state of an archiving dataset by filtering pid, version, dar destination.
+      operationId: getArchivingState
+      parameters:
+      - name: srcMetadataUrl
+        in: query
+        description: todo
+        required: true
+        schema:
+          type: string
+      - name: srcMetadataVersion
+        in: query
+        description: todo
+        required: true
+        schema:
+          type: string
+      - name: destinationDar
+        in: query
+        description: todo
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Archiving'
+        '400':
+          description: Invalid state value
+
+  /auditlog/get-all:
+    get:
+      tags:
+      - Archiving Auditlog
+      summary: Operation to retrive all Archived datasets
+      description: Operation to retrive all Archived datasets.
+      operationId: getAll
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Archiving'
+  /auditlog/filtered-by-state/{state}:
+    get:
+      tags:
+      - Archiving Auditlog
+      summary: todo
+      description: todo
+      operationId: getByState
+      parameters:
+      - name: state
+        in: path
+        description: todo
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Archiving'
+  /auditlog/{id}:
+    get:
+      tags:
+      - Archiving Auditlog
+      summary: todo
+      description: todo
+      operationId: getById
+      parameters:
+      - name: id
+        in: path
+        description: todo
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '201':
+          description: Dataset succesfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Archiving'
+    delete:
+      tags:
+      - Archiving Auditlog
+      summary: Deletes an Auditlog
+      operationId: deleteById
+      parameters:
+      - name: api_key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: Auditlog id to delete
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Auditlog not found
+
+  /auditlog/delete-all:
+    delete:
+      tags:
+      - Archiving Auditlog
+      summary: Deletes all Auditlog
+      operationId: deleteAll
+      parameters:
+      - name: api_key
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Invalid api_key supplied
+        '404':
+          description: Auditlog not found
+
+  /auditlog/delete/{state}:
+    delete:
+      tags:
+      - Archiving Auditlog
+      summary: Delete records filtered by its state
+      operationId: deleteFilteredByState
+      parameters:
+      - name: api_key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: state
+        in: path
+        description: Auditlog state to delete
+        required: true
+        schema:
+          type: string
+      responses:
+        '400':
+          description: Invalid api_key supplied
+        '404':
+          description: Auditlog not found
+
+  /dar/get-all:
+    get:
+      tags:
+      - DAR IRI
+      summary: Operation to retrive all DAR IRI
+      description: Operation to retrive all DAR IRI
+      operationId: getAllDarIri
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DarIri'
+
+  /plugin/get-all:
+    get:
+      tags:
+      - Plugins
+      summary: List of plugins
+      description: List of plugins
+      operationId: getAllPlugins
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Plugin'
+
+  /plugin/{dar-name}:
+    post:
+      tags:
+      - Plugins
+      summary: Uploads plugin
+      description: Add a new plugin. The existing plugin with the same name will be overwritten.
+      operationId: uploadPlugin
+      parameters:
+      - name: api_key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: dar-name
+        in: path
+        description: todo
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                zipPlugin:
+                  description: The zip-plugin to upload.
+                  type: string
+                  format: binary
+        required: true
+      responses:
+        '201':
+          description: Plugin succesfully added.
+        '400':
+          description: Plugi couldn't have been added.
+        '405':
+          description: Invalid input
+
+  /xsl-source:
+    post:
+      tags:
+      - XSL
+      summary: upload xls
+      description: todo
+      operationId: uplodXls
+      parameters:
+      - name: api_key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: source-name
+        in: header
+        description: todo
+        required: true
+        schema:
+          type: string
+      - name: xsl-name
+        in: header
+        description: todo
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestData'
+        description: Dataset object that needs to be added to the Archived's table.
+        required: true
+      responses:
+        '201':
+          description: Plugin succesfully added.
+        '400':
+          description: Plugi couldn't have been added.
+        '405':
+          description: Invalid input
+    get:
+      tags:
+      - XSL
+      summary: get xls
+      description: todo
+      operationId: getXsl
+      parameters:
+      - name: xsl-name
+        in: query
+        description: todo
+        required: true
+        schema:
+          type: string
+      - name: source-name
+        in: query
+        description: todo
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Plugin succesfully added.
+        '400':
+          description: Plugi couldn't have been added.
+        '405':
+          description: Invalid input
+    put:
+      tags:
+      - XSL
+      summary: modify xls
+      description: todo
+      operationId: modifyXls
+      parameters:
+      - name: api_key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: source-name
+        in: header
+        description: todo
+        required: true
+        schema:
+          type: string
+      - name: xsl-name
+        in: header
+        description: todo
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestData'
+        description: Dataset object that needs to be added to the Archived's table.
+        required: true
+      responses:
+        '201':
+          description: Plugin succesfully added.
+        '400':
+          description: Plugi couldn't have been added.
+        '405':
+          description: Invalid input
+externalDocs:
+  description: Find out more about Swagger
+  url: 'http://swagger.io'
+components:
+  schemas:
+    Archiving:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        srcMetadataUrl:
+          type: string
+        srcVersion:
+          type: string
+        destinationIri:
+          type: string
+        pid:
+          type: string
+        startTime:
+          type: string
+          format: date
+        endTime:
+          type: string
+          format: date
+        landingPage:
+          type: string
+        state:
+          type: string
+          enum:
+          - IN-PROGRESS
+          - FAILED
+          - ARCHIVED
+    DarIri:
+      type: object
+      properties:
+        dar-name:
+          type: string
+        iri:
+          type: string
+    Plugin:
+      type: object
+      properties:
+        dar-name:
+          type: string
+        dar-iri:
+          type: string
+        action-class-name:
+          type: string
+        plugin-lib-location:
+          type: string
+        xsl:
+          type: array
+          items:
+            $ref: '#/components/schemas/XslSource'
+    XslSource:
+      type: object
+      properties:
+        name:
+          type: string
+        xsl-transformer-list:
+          type: array
+          items:
+            $ref: '#/components/schemas/XslTransformer'
+
+    XslTransformer:
+      type: object
+      properties:
+        xsl-name:
+          type: string
+        xsl-url:
+          type: string
+    SrcData:
+      type: object
+      properties:
+        srcName:
+          type: string
+        srcMetadataUrl:
+          type: string
+        srcMetadataVersion:
+          type: string
+        srcApiToken:
+          type: string
+    DarData:
+      type: object
+      properties:
+        darUsername:
+          type: string
+        darPassword:
+          type: string
+        darName:
+          type: string
+        darUserAffiliation:
+          type: string
+
+    IngestData:
+      type: object
+      properties:
+        srcData:
+          $ref: '#/components/schemas/SrcData'
+        darData:
+          $ref: '#/components/schemas/DarData'
+

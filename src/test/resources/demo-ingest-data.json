@@ -1,0 +1,13 @@
+{
+  "srcData": {
+    "srcName":"Dataverse",
+    "srcMetadataUrl": "http://ddvn.dans.knaw.nl:8080/api/datasets/export?exporter=ddi&persistentId=hdl:10122004/AKMI",
+    "srcMetadataVersion": "1.0",
+    "apiToken": "c09ccb8e-9700-4bcb-84b7-5ab4ded979dc"
+  },
+  "darData": {
+    "username": "user001",
+    "password": "user001",
+    "darName": "DEMO"
+  }
+}

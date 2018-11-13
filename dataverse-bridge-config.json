@@ -1,0 +1,21 @@
+{
+  "groupId":"nl.knaw.dans.dataverse.bridge.service",
+  "artifactId":"bridge-service",
+  "artifactDescription": "Dataverse Bridge API",
+  "developerName": "Eko Indarto",
+  "developerEmail": "eko.indarto@dans.knaw.nl",
+  "artifactVersion":"1.0.0",
+  "library":"spring-boot",
+  "apiPackage": "nl.knaw.dans.bridge.service.generated.api",
+  "modelPackage": "nl.knaw.dans.bridge.service.generated.model",
+  "basePackage": "nl.knaw.dans.bridge.service.generated.io.swagger",
+  "configPackage":"nl.knaw.dans.bridge.service.generated.io.swagger.config",
+  "java8": true,
+  "interfaceOnly": false,
+  "dateLibrary": "java8",
+  "async": false,
+  "useOptional": false,
+  "useBeanValidation": true,
+  "serializableModel": false
+}
+
