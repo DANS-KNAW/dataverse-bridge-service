@@ -31,9 +31,6 @@ import java.util.*;
     System.exit(-1) or EXIT_ERROR;   ---> Error
  */
 @Configuration
-@PropertySources({
-        @PropertySource(value = "config/application.properties", ignoreResourceNotFound = true)
-})
 public class BridgeConfEnvironment implements EnvironmentAware {
     private static final Logger LOG = LoggerFactory.getLogger(BridgeConfEnvironment.class);
     private static Environment env;
@@ -54,7 +51,6 @@ public class BridgeConfEnvironment implements EnvironmentAware {
         checkingRequiredProperties();
         checkingRequiredDirs();
         registerPlugins();
-//        readDarConfiguration();
         LOG.info("#                                                             #");
         LOG.info("###############################################################");
     }

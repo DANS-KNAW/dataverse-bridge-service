@@ -85,6 +85,8 @@ public class Ingester {
     }
 
     private void asyncIngestToDar(IngestData ingestData, String darIri, List<XslTransformer> xslConverterList, IAction action, ArchivingAuditLog archivingAuditLog, ObjectMapper objectMapper) {
+        archivingAuditLog.setState(StateEnum.REGISTERED.toString());
+        archivingAuditlogDao.update(archivingAuditLog);
         Flowable.fromCallable(() -> {
             log.info("Starting ASYNC ingest process using Flowable.fromCallable()");
             Instant start = Instant.now();
@@ -154,7 +156,7 @@ public class Ingester {
                 , bagitFile, transformResult);
         if (responseDataHolder != null) {
             log.info("Intermediate saving the response data information.");
-            archivingAuditLog.setState(responseDataHolder.getState().get());
+            archivingAuditLog.setState(responseDataHolder.getState().get().toString());
             archivingAuditLog.setLog(responseDataHolder.getResponse());
             archivingAuditlogDao.update(archivingAuditLog);
         }
@@ -162,23 +164,23 @@ public class Ingester {
     }
 
     private void writeArchivedlog(ArchivingAuditLog archivingAuditLog, IResponseData erd, ObjectMapper objectMapper) throws JsonProcessingException {
-        if (erd.getLandingPage() != null)
-            archivingAuditLog.setLandingPage(erd.getLandingPage().get());
+        if (erd.getPidLandingPage() != null)
+            archivingAuditLog.setLandingPage(erd.getPidLandingPage().get().toString());
         if (erd.getDarLandingPage() != null)
-            archivingAuditLog.setDarLandingPage(erd.getDarLandingPage().get());
+            archivingAuditLog.setDarLandingPage(erd.getDarLandingPage().get().toString());
         archivingAuditLog.setPid(erd.getPid().get());
         archivingAuditLog.setEndTime(new Date());
-        archivingAuditLog.setState(erd.getState().get());
+        archivingAuditLog.setState(erd.getState().get().toString());
         if (erd.getResponse() != null)
             archivingAuditLog.setLog(erd.getResponse());
         log.info("Ingest finish. Status " + erd.getState());
-        if (erd.getState().get().equals(StateEnum.ARCHIVED.toString())) {
+        if ( erd.getState().isPresent() && erd.getState().get() == StateEnum.ARCHIVED) {
             //delete bagitdir and its zip.
             removeBagit(archivingAuditLog);
         } else {
             log.error("Something wrong here, state:  " + erd.getState());
             log.error(objectMapper.writeValueAsString(archivingAuditLog));
-            simpleEmail.sendToAdmin(erd.getState().get(), objectMapper.writeValueAsString(archivingAuditLog));
+            simpleEmail.sendToAdmin(erd.getState().get().toString(), objectMapper.writeValueAsString(archivingAuditLog));
         }
         archivingAuditlogDao.update(archivingAuditLog);
     }

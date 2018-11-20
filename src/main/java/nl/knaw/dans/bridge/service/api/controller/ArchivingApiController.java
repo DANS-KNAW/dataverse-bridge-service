@@ -189,11 +189,21 @@ public class ArchivingApiController implements ArchivingApi {
     private HttpStatus responseStatus(ArchivingAuditLog archivingAuditLog) {
         try {
             StateEnum state = StateEnum.fromValue(archivingAuditLog.getState());
-            //It means, the process belongs to archiving and not finish yet (async)
-            //The archiving record is created.
-            return HttpStatus.CREATED;
+            switch (state) {
+                case REGISTERED:
+                    return  HttpStatus.CREATED;
+                case UPDATED:
+                    return HttpStatus.OK;
+                case ERROR:
+                case UNKNOWN:
+                case BAD_REQUEST:
+                    return HttpStatus.BAD_REQUEST;
+                 default:
+                     return HttpStatus.OK;
+
+            }
         }catch (IllegalArgumentException e) {
-            //This belongs to standard http status
+            //This belongs to standard http status, however, when
             return HttpStatus.valueOf(archivingAuditLog.getState());
         }
     }

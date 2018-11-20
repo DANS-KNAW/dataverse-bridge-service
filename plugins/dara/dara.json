@@ -8,7 +8,7 @@
     "transformer": [
       {
         "xsl-name": "dara.xml",
-        "xsl-url": "http://localhost:8592/api/v1/xsl/dara/dataverse/dataverseJson-to-DaraXml.xsl"
+        "xsl-url": "https://raw.githubusercontent.com/Dans-labs/bridge-mappings/master/src/main/resources/xsl/dara/dataverseJson-to-DaraXml.xsl"
       }
     ]
   }

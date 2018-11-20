@@ -42,7 +42,7 @@ public class Register {
                 , Optional.empty(), transformResult);
         if (responseDataHolder != null) {
             log.info("Intermediate saving the response data information.");
-            archivingAuditLog.setState(responseDataHolder.getState().get());
+            archivingAuditLog.setState(responseDataHolder.getState().get().toString());
             archivingAuditLog.setLog(responseDataHolder.getResponse());
             archivingAuditlogDao.update(archivingAuditLog);
         }
