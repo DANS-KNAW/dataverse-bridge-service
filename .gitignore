@@ -23,10 +23,9 @@
 hs_err_pid*
 target
 .dvbridge-db
-config/*
+/config
 dist
 .idea
 logs
 database
-config
 bags/*
