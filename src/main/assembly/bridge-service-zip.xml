@@ -15,6 +15,13 @@
             <outputDirectory>config</outputDirectory>
         </fileSet>
         <fileSet>
+            <directory>${project.basedir}</directory>
+            <includes>
+                <include>*.sh</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+        <fileSet>
             <directory>${project.basedir}/plugins</directory>
         </fileSet>
         <fileSet>

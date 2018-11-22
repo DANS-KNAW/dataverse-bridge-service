@@ -10,7 +10,7 @@
 
 echo "Starting dataverse bridge Quickstart...."
 echo "Starting bridge service ...."
-nohup java -jar -Xms512M bridge-service.jar >> /dev/null &
+nohup java -jar -Xms512M -Xmx2G bridge-service.jar >> /dev/null &
 echo "Starting ... "
 ( tail -f -n0  logs/bridge-service.log & ) | grep -q "Started BridgeService"
 echo "Bridge service is started... "
