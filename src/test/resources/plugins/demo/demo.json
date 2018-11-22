@@ -1,0 +1,5 @@
+{
+  "dar-name": "DEMO",
+  "action-class-name": "nl.knaw.dans.dataverse.bridge.plugin.demo.DemoAction",
+  "action-class-url": "lib/bridge-plugin-demo-1.0-SNAPSHOT-jar-with-dependencies.jar"
+}

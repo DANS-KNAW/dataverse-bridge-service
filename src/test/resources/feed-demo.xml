@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://act.easy.dans.knaw.nl/sword2/statement/f649d944-fdc3-473a-9b9d-08e832390b52</id>
+    <link href="https://act.easy.dans.knaw.nl/sword2/statement/f649d944-fdc3-473a-9b9d-08e832390b52"
+          rel="self"/>
+    <title type="text">Deposit f649d944-fdc3-473a-9b9d-08e832390b52</title>
+    <author>
+        <name>DANS-EASY</name>
+    </author>
+    <updated>2018-08-30T07:21:58.868Z</updated>
+    <category term="DRAFT" scheme="http://purl.org/net/sword/terms/state" label="State">Deposit is
+        open for additional data</category>
+    <entry>
+        <content type="multipart/related" src="urn:uuid:f649d944-fdc3-473a-9b9d-08e832390b52"/>
+        <id>urn:uuid:f649d944-fdc3-473a-9b9d-08e832390b52</id>
+        <title type="text">Resource urn:uuid:f649d944-fdc3-473a-9b9d-08e832390b52</title>
+        <summary type="text">Resource Part</summary>
+        <updated>2018-08-30T07:22:08.604Z</updated>
+    </entry>
+</feed>
