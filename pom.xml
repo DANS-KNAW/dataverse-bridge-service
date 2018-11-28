@@ -37,10 +37,6 @@
     <maven.jar.plugin>3.1.0</maven.jar.plugin>
     <mvn.resources.plugin.version>3.1.0</mvn.resources.plugin.version>
     <mvn.assembly.plugin.version>2.4.1</mvn.assembly.plugin.version>
-
-<!-- fix version -->
-<!--<spring.version>5.1.2.RELEASE</spring.version>-->
-
     <springfox.version>2.7.0</springfox.version>
     <springboot.dependencies.version>2.1.0.RELEASE</springboot.dependencies.version>
     <springboot.stater.test.version>1.5.3.RELEASE</springboot.stater.test.version>
@@ -93,98 +89,6 @@
           </archive>
         </configuration>
       </plugin>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>${mvn.resources.plugin.version}</version>
-        <executions>
-          <execution>
-            <id>copy-config</id>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <encoding>UTF-8</encoding>
-              <outputDirectory>${basedir}/target/config</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>src/main/resources/config</directory>
-                  <filtering>true</filtering>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>${maven.jar.plugin}</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>${bridge.service.main.class}</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
-
-      <!-- Added a copy from working effective pom, to see if it works -->
-      <!--<plugin>-->
-        <!--<artifactId>maven-jar-plugin</artifactId>-->
-        <!--<version>3.1.0</version>-->
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<id>default-jar</id>-->
-            <!--<phase>package</phase>-->
-            <!--<goals>-->
-              <!--<goal>jar</goal>-->
-            <!--</goals>-->
-            <!--<configuration>-->
-              <!--<archive>-->
-                <!--<manifest>-->
-                  <!--<addClasspath>true</addClasspath>-->
-                  <!--<classpathPrefix>lib/</classpathPrefix>-->
-                  <!--<mainClass>nl.knaw.dans.bridge.service.BridgeService</mainClass>-->
-                <!--</manifest>-->
-              <!--</archive>-->
-            <!--</configuration>-->
-          <!--</execution>-->
-        <!--</executions>-->
-        <!--<configuration>-->
-          <!--<archive>-->
-            <!--<manifest>-->
-              <!--<addClasspath>true</addClasspath>-->
-              <!--<classpathPrefix>lib/</classpathPrefix>-->
-              <!--<mainClass>nl.knaw.dans.bridge.service.BridgeService</mainClass>-->
-            <!--</manifest>-->
-          <!--</archive>-->
-        <!--</configuration>-->
-      <!--</plugin>-->
-
-      <!-- TODO remove when using dans parent  -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>${mvn.assembly.plugin.version}</version>
-        <executions>
-          <execution>
-            <id>make-assembly-zip</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <configuration>
-              <appendAssemblyId>false</appendAssemblyId>
-              <descriptors>
-                <descriptor>src/main/assembly/bridge-service-zip.xml</descriptor>
-              </descriptors>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
 
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
@@ -213,29 +117,39 @@
         </executions>
       </plugin>
 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.jar.plugin}</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>${bridge.service.main.class}</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
 
-
-<!-- ENABLE THIS WHEN USING parent! -->
       <plugin>
         <groupId>com.mycila</groupId>
         <artifactId>license-maven-plugin</artifactId>
         <version>${license-maven-plugin.version}</version>
         <configuration>
           <excludes combine.children="append">
-            <!-- exclude needed  -->
+            <!-- extra excludes needed -->
             <exclude>dist/**</exclude>
             <exclude>database/*</exclude>
             <exclude>bags/*</exclude>
             <exclude>logs/*</exclude>
+            <exclude>mvnw</exclude>
             <exclude>.mvn/wrapper/maven-wrapper.properties</exclude>
             <exclude>.swagger-codegen/*</exclude>
             <exclude>.swagger-codegen-ignore</exclude>
-
           </excludes>
         </configuration>
       </plugin>
-
-
     </plugins>
   </build>
   <dependencyManagement>
@@ -250,43 +164,13 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
-    <dependency>
-      <groupId>javax.persistence</groupId>
-      <artifactId>javax.persistence-api</artifactId>
-      <version>2.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.javassist</groupId>
-      <artifactId>javassist</artifactId>
-      <version>3.23.1-GA</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jboss</groupId>
-      <artifactId>jandex</artifactId>
-      <version>2.0.5.Final</version>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate.common</groupId>
-      <artifactId>hibernate-commons-annotations</artifactId>
-      <version>5.0.4.Final</version>
-    </dependency>
+    <!-- Needed this hibernate-core, because dans parent pom results in older version: 4.3.11.Final -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>5.3.7.Final</version>
     </dependency>
-    <dependency>
-      <groupId>org.hamcrest</groupId>
-      <artifactId>hamcrest-core</artifactId>
-      <version>1.3</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>compile</scope>
-    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -324,13 +208,10 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-mail</artifactId>
     </dependency>
-
-    <!-- -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-
     <dependency>
       <groupId>org.hsqldb</groupId>
       <artifactId>hsqldb</artifactId>
@@ -372,16 +253,6 @@
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
       <version>${commons.codec.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-compress</artifactId>
-      <version>1.8.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.dom4j</groupId>
-      <artifactId>dom4j</artifactId>
-      <version>2.1.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
@@ -454,5 +325,4 @@
       <url>http://maven.dans.knaw.nl/</url>
     </pluginRepository>
   </pluginRepositories>
-
 </project>

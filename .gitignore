@@ -29,3 +29,8 @@ dist
 logs
 database
 bags/*
+
+# don't ignore the following dirs with jars
+!plugins/**/lib/*
+!src/test/resources/plugins/demo/lib/*
+!.mvn/wrapper/*
