@@ -72,7 +72,6 @@ public class Ingester {
             try {
                 IResponseData responseData = ingestToDar(ingestData, darIri, xs.getXslTransformerList(), action, archivingAuditLog);
                 log.debug(responseData.getResponse());
-                archivingAuditLog.setState(StateEnum.REGISTERED.toString());
                 archivingAuditLog = archivingAuditlogDao.getById(archivingAuditLog.getId());
             } catch (BridgeException e) {
                 archivingAuditLog.setState(HttpStatus.BAD_REQUEST.name());
