@@ -190,6 +190,7 @@ public class ArchivingApiController implements ArchivingApi {
         try {
             StateEnum state = StateEnum.fromValue(archivingAuditLog.getState());
             switch (state) {
+                case IN_PROGRESS:
                 case REGISTERED:
                     return  HttpStatus.CREATED;
                 case UPDATED:
