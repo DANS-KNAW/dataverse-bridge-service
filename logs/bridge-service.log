@@ -1,1 +1,884 @@
+28-11-2018 11:15:05.096 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer.logDuplicateJsonObjectsWarning - 
 
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/paulboon/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/paulboon/.m2/repository/org/json/json/20090211/json-20090211.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+28-11-2018 11:15:05.134 [main] INFO  n.k.d.b.s.c.DarApiControllerTest.logStarting - Starting DarApiControllerTest on pauls-mbp-2.ia.knaw.local with PID 6987 (started by paulboon in /Users/paulboon/git/service/dataverse/dataverse-bridge-service)
+28-11-2018 11:15:05.136 [main] INFO  n.k.d.b.s.c.DarApiControllerTest.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+28-11-2018 11:15:07.590 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data repositories in DEFAULT mode.
+28-11-2018 11:15:07.736 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 128ms. Found 0 repository interfaces.
+28-11-2018 11:15:08.607 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f0cf6d74] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+28-11-2018 11:15:09.017 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+28-11-2018 11:15:09.520 [main] INFO  hsqldb.db.HSQLDB673B0880A3.ENGINE.invoke0 - checkpointClose start
+28-11-2018 11:15:09.520 [main] INFO  hsqldb.db.HSQLDB673B0880A3.ENGINE.invoke0 - checkpointClose synched
+28-11-2018 11:15:09.527 [main] INFO  hsqldb.db.HSQLDB673B0880A3.ENGINE.invoke0 - checkpointClose script done
+28-11-2018 11:15:09.532 [main] INFO  hsqldb.db.HSQLDB673B0880A3.ENGINE.invoke0 - checkpointClose end
+28-11-2018 11:15:09.551 [main] INFO  com.zaxxer.hikari.pool.PoolBase.getAndSetNetworkTimeout - HikariPool-1 - Driver does not support get/set network timeout for connections. (feature not supported)
+28-11-2018 11:15:09.554 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+28-11-2018 11:15:09.697 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+28-11-2018 11:15:09.838 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate Core {5.3.7.Final}
+28-11-2018 11:15:09.841 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000206: hibernate.properties not found
+28-11-2018 11:15:10.103 [main] INFO  o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+28-11-2018 11:15:10.370 [main] INFO  org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+28-11-2018 11:15:11.374 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+28-11-2018 11:15:11.708 [main] WARN  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - # NO profile is given. Please start the application with a profile, eg: '-Dspring.profiles.active=dev'
+28-11-2018 11:15:11.709 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:15:11.710 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredProperties - Checking required properties....
+28-11-2018 11:15:11.712 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.base.path  value: .
+28-11-2018 11:15:11.713 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apps.support.email.from  value: noreply@dataverse.nl
+28-11-2018 11:15:11.714 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: spring.mail.host  value: spinner.knaw.nl
+28-11-2018 11:15:11.715 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apikey  value: bapik
+28-11-2018 11:15:11.715 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.temp.dir.bags  value: ./bags
+28-11-2018 11:15:11.716 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredDirs - #                Check the required directories               #
+28-11-2018 11:15:11.717 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: static/xsl
+28-11-2018 11:15:11.718 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'static/xsl' directory found. 
+28-11-2018 11:15:11.718 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./database
+28-11-2018 11:15:11.719 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './database' directory found. 
+28-11-2018 11:15:11.719 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: config
+28-11-2018 11:15:11.719 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'config' directory found. 
+28-11-2018 11:15:11.720 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./plugins
+28-11-2018 11:15:11.720 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './plugins' directory found. 
+28-11-2018 11:15:11.721 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./bags
+28-11-2018 11:15:11.721 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './bags' directory found. 
+28-11-2018 11:15:11.722 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                                                             #
+28-11-2018 11:15:11.722 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                 Trying to register plugin...                #
+28-11-2018 11:15:11.729 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:15:11.729 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      easy.json 
+28-11-2018 11:15:11.745 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : EASY
+28-11-2018 11:15:11.746 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : http://deasy.dans.knaw.nl/sword2/collection/1
+28-11-2018 11:15:11.747 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dar.easy.EasyIngestAction
+28-11-2018 11:15:11.747 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-easy-1.0-jar-with-dependencies.jar
+28-11-2018 11:15:11.829 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      dara.json 
+28-11-2018 11:15:11.829 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:15:11.833 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : DARA
+28-11-2018 11:15:11.834 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : https://labs.da-ra.de/dara/study/importXML
+28-11-2018 11:15:11.835 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dara.DaraRegisterAction
+28-11-2018 11:15:11.835 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-dara-1.0-jar-with-dependencies.jar
+28-11-2018 11:15:11.838 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - # Number of plugin: 2
+28-11-2018 11:15:11.841 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - #                                                             #
+28-11-2018 11:15:11.842 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:15:12.905 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+28-11-2018 11:15:13.276 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+28-11-2018 11:15:14.373 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+28-11-2018 11:15:14.701 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping.<init> - Adding welcome page: URL [file:./static/index.html]
+28-11-2018 11:15:16.180 [main] WARN  o.s.b.a.a.w.s.ManagementContextAutoConfiguration.afterSingletonsInstantiated - Could not start embedded management container on different port (management endpoints are still available through JMX)
+28-11-2018 11:15:16.188 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+28-11-2018 11:15:16.230 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+28-11-2018 11:15:16.417 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+28-11-2018 11:15:16.959 [main] INFO  n.k.d.b.s.c.DarApiControllerTest.logStarted - Started DarApiControllerTest in 13.13 seconds (JVM running for 14.482)
+28-11-2018 11:15:17.111 [main] INFO  o.s.mock.web.MockServletContext.log - Initializing Spring TestDispatcherServlet ''
+28-11-2018 11:15:17.113 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+28-11-2018 11:15:17.114 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+28-11-2018 11:15:17.261 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.buildDefaultMergedContextConfiguration - Neither @ContextConfiguration nor @ContextHierarchy found for test class [nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest], using SpringBootContextLoader
+28-11-2018 11:15:17.264 [main] INFO  o.s.t.c.s.AbstractContextLoader.generateDefaultLocations - Could not detect default resource locations for test class [nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+28-11-2018 11:15:17.265 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest]: AuditlogApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+28-11-2018 11:15:17.268 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration nl.knaw.dans.bridge.service.BridgeService for test class nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest
+28-11-2018 11:15:17.271 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+28-11-2018 11:15:17.271 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3340ff7c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@42e4431, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5e198c40, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@dcdb883, org.springframework.test.context.support.DirtiesContextTestExecutionListener@39420d59, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4fbbd98c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5dd227b7, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3d3b852e, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@14ba7f15, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@55cb3b7, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@497fd334, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@280c3dc0]
+28-11-2018 11:15:17.352 [main] INFO  o.s.mock.web.MockServletContext.log - Initializing Spring TestDispatcherServlet ''
+28-11-2018 11:15:17.353 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+28-11-2018 11:15:17.355 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+28-11-2018 11:15:17.572 [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator.initiateService - HHH000397: Using ASTQueryTranslatorFactory
+28-11-2018 11:15:17.841 [main] INFO  o.s.mock.web.MockServletContext.log - Initializing Spring TestDispatcherServlet ''
+28-11-2018 11:15:17.841 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+28-11-2018 11:15:17.842 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+28-11-2018 11:15:17.896 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.buildDefaultMergedContextConfiguration - Neither @ContextConfiguration nor @ContextHierarchy found for test class [nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest], using SpringBootContextLoader
+28-11-2018 11:15:17.898 [main] INFO  o.s.t.c.s.AbstractContextLoader.generateDefaultLocations - Could not detect default resource locations for test class [nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+28-11-2018 11:15:17.899 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest]: ArchivingApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+28-11-2018 11:15:17.901 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration nl.knaw.dans.bridge.service.BridgeService for test class nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest
+28-11-2018 11:15:17.903 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+28-11-2018 11:15:17.905 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2e7e4480, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@8beb0dd, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3d99d327, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@233789d9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7f31937b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2f4fc18, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7187078a, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6e612122, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1d38cdde, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3809f65d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@717b0d81, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@16745abd]
+28-11-2018 11:15:17.907 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.buildDefaultMergedContextConfiguration - Neither @ContextConfiguration nor @ContextHierarchy found for test class [nl.knaw.dans.bridge.service.controller.PluginApiControllerTest], using SpringBootContextLoader
+28-11-2018 11:15:17.908 [main] INFO  o.s.t.c.s.AbstractContextLoader.generateDefaultLocations - Could not detect default resource locations for test class [nl.knaw.dans.bridge.service.controller.PluginApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+28-11-2018 11:15:17.909 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [nl.knaw.dans.bridge.service.controller.PluginApiControllerTest]: PluginApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+28-11-2018 11:15:17.913 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration nl.knaw.dans.bridge.service.BridgeService for test class nl.knaw.dans.bridge.service.controller.PluginApiControllerTest
+28-11-2018 11:15:17.917 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+28-11-2018 11:15:17.921 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@73eae5f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4902c584, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7698a3d9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4b62f1ba, org.springframework.test.context.support.DirtiesContextTestExecutionListener@39dce2df, org.springframework.test.context.transaction.TransactionalTestExecutionListener@662d3e85, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5598dff2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@92b1bda, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@57bfca3a, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@58690f5e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4b9d2cee, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1a390b8c]
+28-11-2018 11:15:17.965 [main] INFO  o.s.mock.web.MockServletContext.log - Initializing Spring TestDispatcherServlet ''
+28-11-2018 11:15:17.967 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+28-11-2018 11:15:17.968 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+28-11-2018 11:15:18.008 [Thread-6] INFO  o.s.s.c.ThreadPoolTaskExecutor.shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+28-11-2018 11:15:18.011 [Thread-6] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+28-11-2018 11:15:18.013 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+28-11-2018 11:15:18.019 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+28-11-2018 11:17:28.851 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer.logDuplicateJsonObjectsWarning - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/paulboon/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/paulboon/.m2/repository/org/json/json/20090211/json-20090211.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+28-11-2018 11:17:28.892 [main] INFO  n.k.d.b.s.c.DarApiControllerTest.logStarting - Starting DarApiControllerTest on pauls-mbp-2.ia.knaw.local with PID 7068 (started by paulboon in /Users/paulboon/git/service/dataverse/dataverse-bridge-service)
+28-11-2018 11:17:28.894 [main] INFO  n.k.d.b.s.c.DarApiControllerTest.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+28-11-2018 11:17:31.008 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data repositories in DEFAULT mode.
+28-11-2018 11:17:31.171 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 152ms. Found 0 repository interfaces.
+28-11-2018 11:17:31.990 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1c4862f4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+28-11-2018 11:17:32.428 [main] WARN  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - # NO profile is given. Please start the application with a profile, eg: '-Dspring.profiles.active=dev'
+28-11-2018 11:17:32.429 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:17:32.430 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredProperties - Checking required properties....
+28-11-2018 11:17:32.432 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.base.path  value: .
+28-11-2018 11:17:32.433 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apps.support.email.from  value: noreply@dataverse.nl
+28-11-2018 11:17:32.433 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: spring.mail.host  value: spinner.knaw.nl
+28-11-2018 11:17:32.433 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apikey  value: bapik
+28-11-2018 11:17:32.434 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.temp.dir.bags  value: ./bags
+28-11-2018 11:17:32.435 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredDirs - #                Check the required directories               #
+28-11-2018 11:17:32.436 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: static/xsl
+28-11-2018 11:17:32.438 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'static/xsl' directory found. 
+28-11-2018 11:17:32.438 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./database
+28-11-2018 11:17:32.439 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './database' directory found. 
+28-11-2018 11:17:32.440 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: config
+28-11-2018 11:17:32.441 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'config' directory found. 
+28-11-2018 11:17:32.441 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./plugins
+28-11-2018 11:17:32.442 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './plugins' directory found. 
+28-11-2018 11:17:32.443 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./bags
+28-11-2018 11:17:32.445 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './bags' directory found. 
+28-11-2018 11:17:32.448 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                                                             #
+28-11-2018 11:17:32.449 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                 Trying to register plugin...                #
+28-11-2018 11:17:32.461 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:17:32.462 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      easy.json 
+28-11-2018 11:17:32.487 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : EASY
+28-11-2018 11:17:32.489 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : http://deasy.dans.knaw.nl/sword2/collection/1
+28-11-2018 11:17:32.490 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dar.easy.EasyIngestAction
+28-11-2018 11:17:32.490 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-easy-1.0-jar-with-dependencies.jar
+28-11-2018 11:17:32.609 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      dara.json 
+28-11-2018 11:17:32.613 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:17:32.619 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : DARA
+28-11-2018 11:17:32.623 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : https://labs.da-ra.de/dara/study/importXML
+28-11-2018 11:17:32.628 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dara.DaraRegisterAction
+28-11-2018 11:17:32.631 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-dara-1.0-jar-with-dependencies.jar
+28-11-2018 11:17:32.635 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - # Number of plugin: 2
+28-11-2018 11:17:32.636 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - #                                                             #
+28-11-2018 11:17:32.637 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:17:32.808 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener.logMessage - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+28-11-2018 11:17:33.102 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter.report - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field archivingAuditlogDao in nl.knaw.dans.bridge.service.handler.Ingester required a bean of type 'javax.persistence.EntityManagerFactory' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'javax.persistence.EntityManagerFactory' in your configuration.
+
+28-11-2018 11:17:33.125 [main] ERROR o.s.test.context.TestContextManager.prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5939a379] to prepare test instance [nl.knaw.dans.bridge.service.controller.DarApiControllerTest@6274670b]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'archivingApiController': Unsatisfied dependency expressed through field 'ingester'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'ingester': Unsatisfied dependency expressed through field 'archivingAuditlogDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 27 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'ingester': Unsatisfied dependency expressed through field 'archivingAuditlogDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1239)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 45 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessProperties(PersistenceAnnotationBeanPostProcessor.java:359)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1239)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 58 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1087)
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findDefaultEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:580)
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:543)
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.resolveEntityManager(PersistenceAnnotationBeanPostProcessor.java:711)
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.getResourceToInject(PersistenceAnnotationBeanPostProcessor.java:684)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:180)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessProperties(PersistenceAnnotationBeanPostProcessor.java:356)
+	... 69 common frames omitted
+28-11-2018 11:17:33.142 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.buildDefaultMergedContextConfiguration - Neither @ContextConfiguration nor @ContextHierarchy found for test class [nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest], using SpringBootContextLoader
+28-11-2018 11:17:33.154 [main] INFO  o.s.t.c.s.AbstractContextLoader.generateDefaultLocations - Could not detect default resource locations for test class [nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+28-11-2018 11:17:33.155 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest]: AuditlogApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+28-11-2018 11:17:33.169 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration nl.knaw.dans.bridge.service.BridgeService for test class nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest
+28-11-2018 11:17:33.178 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+28-11-2018 11:17:33.178 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7bcecef6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@46046c06, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@93824eb, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7af52ec7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@77c1e611, org.springframework.test.context.transaction.TransactionalTestExecutionListener@12c0c0b3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5a97b17c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@9c73fff, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@71cea1b8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@659f226a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2e463f4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@32ec9c90]
+28-11-2018 11:17:33.424 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer.logDuplicateJsonObjectsWarning - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/paulboon/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/paulboon/.m2/repository/org/json/json/20090211/json-20090211.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+28-11-2018 11:17:33.435 [main] INFO  n.k.d.b.s.c.AuditlogApiControllerTest.logStarting - Starting AuditlogApiControllerTest on pauls-mbp-2.ia.knaw.local with PID 7068 (started by paulboon in /Users/paulboon/git/service/dataverse/dataverse-bridge-service)
+28-11-2018 11:17:33.438 [main] INFO  n.k.d.b.s.c.AuditlogApiControllerTest.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+28-11-2018 11:17:34.088 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data repositories in DEFAULT mode.
+28-11-2018 11:17:34.205 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 114ms. Found 0 repository interfaces.
+28-11-2018 11:17:34.378 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1c4862f4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+28-11-2018 11:17:34.549 [main] WARN  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - # NO profile is given. Please start the application with a profile, eg: '-Dspring.profiles.active=dev'
+28-11-2018 11:17:34.549 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:17:34.550 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredProperties - Checking required properties....
+28-11-2018 11:17:34.551 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.base.path  value: .
+28-11-2018 11:17:34.552 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apps.support.email.from  value: noreply@dataverse.nl
+28-11-2018 11:17:34.553 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: spring.mail.host  value: spinner.knaw.nl
+28-11-2018 11:17:34.553 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apikey  value: bapik
+28-11-2018 11:17:34.553 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.temp.dir.bags  value: ./bags
+28-11-2018 11:17:34.554 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredDirs - #                Check the required directories               #
+28-11-2018 11:17:34.555 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: static/xsl
+28-11-2018 11:17:34.555 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'static/xsl' directory found. 
+28-11-2018 11:17:34.555 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./database
+28-11-2018 11:17:34.556 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './database' directory found. 
+28-11-2018 11:17:34.556 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: config
+28-11-2018 11:17:34.556 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'config' directory found. 
+28-11-2018 11:17:34.556 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./plugins
+28-11-2018 11:17:34.557 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './plugins' directory found. 
+28-11-2018 11:17:34.558 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./bags
+28-11-2018 11:17:34.558 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './bags' directory found. 
+28-11-2018 11:17:34.559 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                                                             #
+28-11-2018 11:17:34.559 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                 Trying to register plugin...                #
+28-11-2018 11:17:34.560 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:17:34.560 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      easy.json 
+28-11-2018 11:17:34.562 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : EASY
+28-11-2018 11:17:34.563 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : http://deasy.dans.knaw.nl/sword2/collection/1
+28-11-2018 11:17:34.564 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dar.easy.EasyIngestAction
+28-11-2018 11:17:34.565 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-easy-1.0-jar-with-dependencies.jar
+28-11-2018 11:17:34.566 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      dara.json 
+28-11-2018 11:17:34.567 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:17:34.568 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : DARA
+28-11-2018 11:17:34.571 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : https://labs.da-ra.de/dara/study/importXML
+28-11-2018 11:17:34.571 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dara.DaraRegisterAction
+28-11-2018 11:17:34.572 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-dara-1.0-jar-with-dependencies.jar
+28-11-2018 11:17:34.573 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - # Number of plugin: 4
+28-11-2018 11:17:34.574 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - #                                                             #
+28-11-2018 11:17:34.574 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:17:34.667 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener.logMessage - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+28-11-2018 11:17:34.889 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter.report - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field archivingAuditlogDao in nl.knaw.dans.bridge.service.handler.Ingester required a bean of type 'javax.persistence.EntityManagerFactory' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'javax.persistence.EntityManagerFactory' in your configuration.
+
+28-11-2018 11:17:34.894 [main] ERROR o.s.test.context.TestContextManager.prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@7bcecef6] to prepare test instance [nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest@15369d73]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'archivingApiController': Unsatisfied dependency expressed through field 'ingester'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'ingester': Unsatisfied dependency expressed through field 'archivingAuditlogDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) ~[spring-boot-test-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 27 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'ingester': Unsatisfied dependency expressed through field 'archivingAuditlogDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1239) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 45 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessProperties(PersistenceAnnotationBeanPostProcessor.java:359) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1239) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 58 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1087) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findDefaultEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:580) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:543) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.resolveEntityManager(PersistenceAnnotationBeanPostProcessor.java:711) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.getResourceToInject(PersistenceAnnotationBeanPostProcessor.java:684) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:180) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessProperties(PersistenceAnnotationBeanPostProcessor.java:356) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 69 common frames omitted
+28-11-2018 11:17:35.071 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer.logDuplicateJsonObjectsWarning - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/paulboon/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/paulboon/.m2/repository/org/json/json/20090211/json-20090211.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+28-11-2018 11:17:35.073 [main] INFO  n.k.d.b.s.c.AuditlogApiControllerTest.logStarting - Starting AuditlogApiControllerTest on pauls-mbp-2.ia.knaw.local with PID 7068 (started by paulboon in /Users/paulboon/git/service/dataverse/dataverse-bridge-service)
+28-11-2018 11:17:35.074 [main] INFO  n.k.d.b.s.c.AuditlogApiControllerTest.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+28-11-2018 11:17:35.613 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data repositories in DEFAULT mode.
+28-11-2018 11:17:35.650 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 31ms. Found 0 repository interfaces.
+28-11-2018 11:17:35.785 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1c4862f4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+28-11-2018 11:17:36.003 [main] WARN  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - # NO profile is given. Please start the application with a profile, eg: '-Dspring.profiles.active=dev'
+28-11-2018 11:17:36.004 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:17:36.005 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredProperties - Checking required properties....
+28-11-2018 11:17:36.005 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.base.path  value: .
+28-11-2018 11:17:36.006 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apps.support.email.from  value: noreply@dataverse.nl
+28-11-2018 11:17:36.006 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: spring.mail.host  value: spinner.knaw.nl
+28-11-2018 11:17:36.006 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apikey  value: bapik
+28-11-2018 11:17:36.007 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.temp.dir.bags  value: ./bags
+28-11-2018 11:17:36.008 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredDirs - #                Check the required directories               #
+28-11-2018 11:17:36.008 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: static/xsl
+28-11-2018 11:17:36.009 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'static/xsl' directory found. 
+28-11-2018 11:17:36.009 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./database
+28-11-2018 11:17:36.010 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './database' directory found. 
+28-11-2018 11:17:36.010 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: config
+28-11-2018 11:17:36.013 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'config' directory found. 
+28-11-2018 11:17:36.014 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./plugins
+28-11-2018 11:17:36.014 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './plugins' directory found. 
+28-11-2018 11:17:36.015 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./bags
+28-11-2018 11:17:36.016 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './bags' directory found. 
+28-11-2018 11:17:36.017 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                                                             #
+28-11-2018 11:17:36.017 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                 Trying to register plugin...                #
+28-11-2018 11:17:36.018 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:17:36.018 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      easy.json 
+28-11-2018 11:17:36.022 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : EASY
+28-11-2018 11:17:36.022 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : http://deasy.dans.knaw.nl/sword2/collection/1
+28-11-2018 11:17:36.023 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dar.easy.EasyIngestAction
+28-11-2018 11:17:36.023 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-easy-1.0-jar-with-dependencies.jar
+28-11-2018 11:17:36.025 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      dara.json 
+28-11-2018 11:17:36.026 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:17:36.028 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : DARA
+28-11-2018 11:17:36.029 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : https://labs.da-ra.de/dara/study/importXML
+28-11-2018 11:17:36.029 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dara.DaraRegisterAction
+28-11-2018 11:17:36.030 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-dara-1.0-jar-with-dependencies.jar
+28-11-2018 11:17:36.033 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - # Number of plugin: 6
+28-11-2018 11:17:36.035 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - #                                                             #
+28-11-2018 11:17:36.037 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:17:36.124 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener.logMessage - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+28-11-2018 11:17:36.343 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter.report - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field archivingAuditlogDao in nl.knaw.dans.bridge.service.handler.Ingester required a bean of type 'javax.persistence.EntityManagerFactory' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'javax.persistence.EntityManagerFactory' in your configuration.
+
+28-11-2018 11:17:36.348 [main] ERROR o.s.test.context.TestContextManager.prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@7bcecef6] to prepare test instance [nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest@430d3021]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'archivingApiController': Unsatisfied dependency expressed through field 'ingester'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'ingester': Unsatisfied dependency expressed through field 'archivingAuditlogDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) ~[spring-boot-test-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 27 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'ingester': Unsatisfied dependency expressed through field 'archivingAuditlogDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1239) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 45 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessProperties(PersistenceAnnotationBeanPostProcessor.java:359) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1239) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 58 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1087) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findDefaultEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:580) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:543) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.resolveEntityManager(PersistenceAnnotationBeanPostProcessor.java:711) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.getResourceToInject(PersistenceAnnotationBeanPostProcessor.java:684) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:180) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessProperties(PersistenceAnnotationBeanPostProcessor.java:356) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 69 common frames omitted
+28-11-2018 11:17:36.354 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.buildDefaultMergedContextConfiguration - Neither @ContextConfiguration nor @ContextHierarchy found for test class [nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest], using SpringBootContextLoader
+28-11-2018 11:17:36.357 [main] INFO  o.s.t.c.s.AbstractContextLoader.generateDefaultLocations - Could not detect default resource locations for test class [nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+28-11-2018 11:17:36.358 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest]: ArchivingApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+28-11-2018 11:17:36.362 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration nl.knaw.dans.bridge.service.BridgeService for test class nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest
+28-11-2018 11:17:36.365 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+28-11-2018 11:17:36.367 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5a7e81, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4045fd1f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@13ee97af, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@67e11bda, org.springframework.test.context.support.DirtiesContextTestExecutionListener@341ccfd1, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5bde6148, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3cead673, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@53ba25ff, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@10a0a1e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2976ef56, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4345fd45, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4152bd0f]
+28-11-2018 11:17:36.370 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.buildDefaultMergedContextConfiguration - Neither @ContextConfiguration nor @ContextHierarchy found for test class [nl.knaw.dans.bridge.service.controller.PluginApiControllerTest], using SpringBootContextLoader
+28-11-2018 11:17:36.372 [main] INFO  o.s.t.c.s.AbstractContextLoader.generateDefaultLocations - Could not detect default resource locations for test class [nl.knaw.dans.bridge.service.controller.PluginApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+28-11-2018 11:17:36.373 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [nl.knaw.dans.bridge.service.controller.PluginApiControllerTest]: PluginApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+28-11-2018 11:17:36.395 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration nl.knaw.dans.bridge.service.BridgeService for test class nl.knaw.dans.bridge.service.controller.PluginApiControllerTest
+28-11-2018 11:17:36.398 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+28-11-2018 11:17:36.398 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7a62d697, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@edbc2bf, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3e01796a, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@62ab5e63, org.springframework.test.context.support.DirtiesContextTestExecutionListener@e91facf, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5e8f0f98, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6bf0f70a, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5310e451, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@52d63b7e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@74830d73, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1827fc4e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4c41a177]
+28-11-2018 11:17:36.560 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer.logDuplicateJsonObjectsWarning - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/paulboon/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/paulboon/.m2/repository/org/json/json/20090211/json-20090211.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+28-11-2018 11:17:36.563 [main] INFO  n.k.d.b.s.c.PluginApiControllerTest.logStarting - Starting PluginApiControllerTest on pauls-mbp-2.ia.knaw.local with PID 7068 (started by paulboon in /Users/paulboon/git/service/dataverse/dataverse-bridge-service)
+28-11-2018 11:17:36.567 [main] INFO  n.k.d.b.s.c.PluginApiControllerTest.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+28-11-2018 11:17:37.190 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data repositories in DEFAULT mode.
+28-11-2018 11:17:37.225 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 34ms. Found 0 repository interfaces.
+28-11-2018 11:17:37.344 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1c4862f4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+28-11-2018 11:17:37.516 [main] WARN  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - # NO profile is given. Please start the application with a profile, eg: '-Dspring.profiles.active=dev'
+28-11-2018 11:17:37.516 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:17:37.517 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredProperties - Checking required properties....
+28-11-2018 11:17:37.519 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.base.path  value: .
+28-11-2018 11:17:37.520 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apps.support.email.from  value: noreply@dataverse.nl
+28-11-2018 11:17:37.521 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: spring.mail.host  value: spinner.knaw.nl
+28-11-2018 11:17:37.522 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apikey  value: bapik
+28-11-2018 11:17:37.523 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.temp.dir.bags  value: ./bags
+28-11-2018 11:17:37.524 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredDirs - #                Check the required directories               #
+28-11-2018 11:17:37.525 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: static/xsl
+28-11-2018 11:17:37.526 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'static/xsl' directory found. 
+28-11-2018 11:17:37.527 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./database
+28-11-2018 11:17:37.527 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './database' directory found. 
+28-11-2018 11:17:37.527 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: config
+28-11-2018 11:17:37.528 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'config' directory found. 
+28-11-2018 11:17:37.528 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./plugins
+28-11-2018 11:17:37.529 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './plugins' directory found. 
+28-11-2018 11:17:37.529 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./bags
+28-11-2018 11:17:37.529 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './bags' directory found. 
+28-11-2018 11:17:37.529 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                                                             #
+28-11-2018 11:17:37.529 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                 Trying to register plugin...                #
+28-11-2018 11:17:37.532 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:17:37.533 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      easy.json 
+28-11-2018 11:17:37.540 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : EASY
+28-11-2018 11:17:37.540 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : http://deasy.dans.knaw.nl/sword2/collection/1
+28-11-2018 11:17:37.541 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dar.easy.EasyIngestAction
+28-11-2018 11:17:37.541 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-easy-1.0-jar-with-dependencies.jar
+28-11-2018 11:17:37.542 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      dara.json 
+28-11-2018 11:17:37.542 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:17:37.544 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : DARA
+28-11-2018 11:17:37.544 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : https://labs.da-ra.de/dara/study/importXML
+28-11-2018 11:17:37.544 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dara.DaraRegisterAction
+28-11-2018 11:17:37.545 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-dara-1.0-jar-with-dependencies.jar
+28-11-2018 11:17:37.549 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - # Number of plugin: 8
+28-11-2018 11:17:37.549 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - #                                                             #
+28-11-2018 11:17:37.550 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:17:37.653 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener.logMessage - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+28-11-2018 11:17:37.784 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter.report - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field archivingAuditlogDao in nl.knaw.dans.bridge.service.handler.Ingester required a bean of type 'javax.persistence.EntityManagerFactory' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'javax.persistence.EntityManagerFactory' in your configuration.
+
+28-11-2018 11:17:37.790 [main] ERROR o.s.test.context.TestContextManager.prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@7a62d697] to prepare test instance [nl.knaw.dans.bridge.service.controller.PluginApiControllerTest@7acb5200]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) [surefire-junit4-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) [surefire-booter-2.21.0.jar:2.21.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413) [surefire-booter-2.21.0.jar:2.21.0]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'archivingApiController': Unsatisfied dependency expressed through field 'ingester'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'ingester': Unsatisfied dependency expressed through field 'archivingAuditlogDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) ~[spring-boot-test-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 27 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'ingester': Unsatisfied dependency expressed through field 'archivingAuditlogDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1239) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 45 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'archivingAuditlogDao': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessProperties(PersistenceAnnotationBeanPostProcessor.java:359) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1239) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1166) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 58 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1087) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findDefaultEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:580) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:543) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.resolveEntityManager(PersistenceAnnotationBeanPostProcessor.java:711) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.getResourceToInject(PersistenceAnnotationBeanPostProcessor.java:684) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:180) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessProperties(PersistenceAnnotationBeanPostProcessor.java:356) ~[spring-orm-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 69 common frames omitted
+28-11-2018 11:58:02.137 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer.logDuplicateJsonObjectsWarning - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/paulboon/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/paulboon/.m2/repository/org/json/json/20090211/json-20090211.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+28-11-2018 11:58:02.191 [main] INFO  n.k.d.b.s.c.DarApiControllerTest.logStarting - Starting DarApiControllerTest on pauls-mbp-2.ia.knaw.local with PID 10796 (started by paulboon in /Users/paulboon/git/service/dataverse/dataverse-bridge-service)
+28-11-2018 11:58:02.192 [main] INFO  n.k.d.b.s.c.DarApiControllerTest.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+28-11-2018 11:58:05.057 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data repositories in DEFAULT mode.
+28-11-2018 11:58:05.348 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 272ms. Found 0 repository interfaces.
+28-11-2018 11:58:06.457 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$154ce814] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+28-11-2018 11:58:06.920 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+28-11-2018 11:58:07.400 [main] INFO  hsqldb.db.HSQLDB673B0880A3.ENGINE.invoke0 - checkpointClose start
+28-11-2018 11:58:07.401 [main] INFO  hsqldb.db.HSQLDB673B0880A3.ENGINE.invoke0 - checkpointClose synched
+28-11-2018 11:58:07.411 [main] INFO  hsqldb.db.HSQLDB673B0880A3.ENGINE.invoke0 - checkpointClose script done
+28-11-2018 11:58:07.418 [main] INFO  hsqldb.db.HSQLDB673B0880A3.ENGINE.invoke0 - checkpointClose end
+28-11-2018 11:58:07.427 [main] INFO  com.zaxxer.hikari.pool.PoolBase.getAndSetNetworkTimeout - HikariPool-1 - Driver does not support get/set network timeout for connections. (feature not supported)
+28-11-2018 11:58:07.431 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+28-11-2018 11:58:07.684 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+28-11-2018 11:58:07.842 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate Core {5.3.7.Final}
+28-11-2018 11:58:07.847 [main] INFO  org.hibernate.cfg.Environment.<clinit> - HHH000206: hibernate.properties not found
+28-11-2018 11:58:08.154 [main] INFO  o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+28-11-2018 11:58:08.468 [main] INFO  org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+28-11-2018 11:58:09.427 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+28-11-2018 11:58:09.764 [main] WARN  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - # NO profile is given. Please start the application with a profile, eg: '-Dspring.profiles.active=dev'
+28-11-2018 11:58:09.765 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:58:09.765 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredProperties - Checking required properties....
+28-11-2018 11:58:09.766 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.base.path  value: .
+28-11-2018 11:58:09.767 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apps.support.email.from  value: noreply@dataverse.nl
+28-11-2018 11:58:09.768 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: spring.mail.host  value: spinner.knaw.nl
+28-11-2018 11:58:09.768 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.apikey  value: bapik
+28-11-2018 11:58:09.768 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredProperties$2 - # Property name: bridge.temp.dir.bags  value: ./bags
+28-11-2018 11:58:09.769 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.checkingRequiredDirs - #                Check the required directories               #
+28-11-2018 11:58:09.770 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: static/xsl
+28-11-2018 11:58:09.772 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'static/xsl' directory found. 
+28-11-2018 11:58:09.773 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./database
+28-11-2018 11:58:09.774 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './database' directory found. 
+28-11-2018 11:58:09.775 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: config
+28-11-2018 11:58:09.777 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     'config' directory found. 
+28-11-2018 11:58:09.778 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./plugins
+28-11-2018 11:58:09.778 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './plugins' directory found. 
+28-11-2018 11:58:09.779 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - # Directory name: ./bags
+28-11-2018 11:58:09.780 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.lambda$checkingRequiredDirs$3 - #     './bags' directory found. 
+28-11-2018 11:58:09.781 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                                                             #
+28-11-2018 11:58:09.782 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - #                 Trying to register plugin...                #
+28-11-2018 11:58:09.804 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:58:09.806 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      easy.json 
+28-11-2018 11:58:09.849 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : EASY
+28-11-2018 11:58:09.850 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : http://deasy.dans.knaw.nl/sword2/collection/1
+28-11-2018 11:58:09.850 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dar.easy.EasyIngestAction
+28-11-2018 11:58:09.851 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-easy-1.0-jar-with-dependencies.jar
+28-11-2018 11:58:09.955 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      dara.json 
+28-11-2018 11:58:09.956 [main] INFO  n.k.d.b.s.util.PluginRegisterService.accept - #      lib 
+28-11-2018 11:58:09.959 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR name   : DARA
+28-11-2018 11:58:09.960 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      DAR IRI   : https://labs.da-ra.de/dara/study/importXML
+28-11-2018 11:58:09.962 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-name    : nl.knaw.dans.bridge.plugin.dara.DaraRegisterAction
+28-11-2018 11:58:09.963 [main] INFO  n.k.d.b.s.util.PluginRegisterService.attachDarPlugin - #      action-class-url: lib/bridge-plugin-dara-1.0-jar-with-dependencies.jar
+28-11-2018 11:58:09.966 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.registerPlugins - # Number of plugin: 2
+28-11-2018 11:58:09.967 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - #                                                             #
+28-11-2018 11:58:09.968 [main] INFO  n.k.d.b.s.a.c.BridgeConfEnvironment.setEnvironment - ###############################################################
+28-11-2018 11:58:11.240 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+28-11-2018 11:58:11.823 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+28-11-2018 11:58:12.957 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+28-11-2018 11:58:13.247 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping.<init> - Adding welcome page: URL [file:./static/index.html]
+28-11-2018 11:58:14.969 [main] WARN  o.s.b.a.a.w.s.ManagementContextAutoConfiguration.afterSingletonsInstantiated - Could not start embedded management container on different port (management endpoints are still available through JMX)
+28-11-2018 11:58:14.975 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+28-11-2018 11:58:15.018 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+28-11-2018 11:58:15.205 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+28-11-2018 11:58:15.852 [main] INFO  n.k.d.b.s.c.DarApiControllerTest.logStarted - Started DarApiControllerTest in 15.322 seconds (JVM running for 17.351)
+28-11-2018 11:58:16.020 [main] INFO  o.s.mock.web.MockServletContext.log - Initializing Spring TestDispatcherServlet ''
+28-11-2018 11:58:16.022 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+28-11-2018 11:58:16.023 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+28-11-2018 11:58:16.178 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.buildDefaultMergedContextConfiguration - Neither @ContextConfiguration nor @ContextHierarchy found for test class [nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest], using SpringBootContextLoader
+28-11-2018 11:58:16.180 [main] INFO  o.s.t.c.s.AbstractContextLoader.generateDefaultLocations - Could not detect default resource locations for test class [nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+28-11-2018 11:58:16.181 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest]: AuditlogApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+28-11-2018 11:58:16.205 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration nl.knaw.dans.bridge.service.BridgeService for test class nl.knaw.dans.bridge.service.controller.AuditlogApiControllerTest
+28-11-2018 11:58:16.227 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+28-11-2018 11:58:16.233 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@22846a1d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@fe38c0e, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6167c42f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2cbc2db2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2de96eba, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3ef914f5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@61e0f9b9, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2c7c898a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4a86be01, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3cae4518, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5a654e05, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@121dac1a]
+28-11-2018 11:58:16.279 [main] INFO  o.s.mock.web.MockServletContext.log - Initializing Spring TestDispatcherServlet ''
+28-11-2018 11:58:16.280 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+28-11-2018 11:58:16.280 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+28-11-2018 11:58:16.495 [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator.initiateService - HHH000397: Using ASTQueryTranslatorFactory
+28-11-2018 11:58:16.699 [main] INFO  o.s.mock.web.MockServletContext.log - Initializing Spring TestDispatcherServlet ''
+28-11-2018 11:58:16.700 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+28-11-2018 11:58:16.700 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+28-11-2018 11:58:16.757 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.buildDefaultMergedContextConfiguration - Neither @ContextConfiguration nor @ContextHierarchy found for test class [nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest], using SpringBootContextLoader
+28-11-2018 11:58:16.762 [main] INFO  o.s.t.c.s.AbstractContextLoader.generateDefaultLocations - Could not detect default resource locations for test class [nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+28-11-2018 11:58:16.764 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest]: ArchivingApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+28-11-2018 11:58:16.771 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration nl.knaw.dans.bridge.service.BridgeService for test class nl.knaw.dans.bridge.service.controller.ArchivingApiControllerTest
+28-11-2018 11:58:16.774 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+28-11-2018 11:58:16.776 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@43094e0c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@35efd12c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@70f76276, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1e18876d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@17e8c38c, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5c4516ec, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@17ea3bc0, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4d93e5bf, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1c36ab22, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@68303c3e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2ec23ec3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7c2e88b9]
+28-11-2018 11:58:16.780 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.buildDefaultMergedContextConfiguration - Neither @ContextConfiguration nor @ContextHierarchy found for test class [nl.knaw.dans.bridge.service.controller.PluginApiControllerTest], using SpringBootContextLoader
+28-11-2018 11:58:16.781 [main] INFO  o.s.t.c.s.AbstractContextLoader.generateDefaultLocations - Could not detect default resource locations for test class [nl.knaw.dans.bridge.service.controller.PluginApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+28-11-2018 11:58:16.782 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [nl.knaw.dans.bridge.service.controller.PluginApiControllerTest]: PluginApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+28-11-2018 11:58:16.786 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration nl.knaw.dans.bridge.service.BridgeService for test class nl.knaw.dans.bridge.service.controller.PluginApiControllerTest
+28-11-2018 11:58:16.789 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getDefaultTestExecutionListenerClassNames - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+28-11-2018 11:58:16.792 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getTestExecutionListeners - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@e1c91cd, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@69e8b711, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@764a3867, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@d99df7a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@67e1a5fd, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4b9dc62f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6cb3463b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2f9236d8, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4536a09a, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@603faaad, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@16cbba0f, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@28d16af8]
+28-11-2018 11:58:16.848 [main] INFO  o.s.mock.web.MockServletContext.log - Initializing Spring TestDispatcherServlet ''
+28-11-2018 11:58:16.849 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+28-11-2018 11:58:16.850 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+28-11-2018 11:58:16.907 [Thread-6] INFO  o.s.s.c.ThreadPoolTaskExecutor.shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+28-11-2018 11:58:16.912 [Thread-6] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+28-11-2018 11:58:16.915 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+28-11-2018 11:58:16.920 [Thread-6] INFO  com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
