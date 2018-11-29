@@ -110,7 +110,7 @@ public class ArchivingApiController implements ArchivingApi {
                 try {
                     ArchivingAuditLog dbArchivingAuditLog = archivingAuditlogDao.getBySrcurlSrcversionTargetiri(srcMetadataUrl, srcMetadataVersion, targetDarName);
                     if (dbArchivingAuditLog == null) {
-                        log.error("The following GET request is NOT FOUND: srcMetadataUrl: {}\tsrcMetadataVersion: {}\ttargetDarName: {}",srcMetadataUrl, srcMetadataVersion, targetDarName);
+                        log.error("The following GET request is NOT FOUND for srcMetadataUrl: {}\tsrcMetadataVersion: {}\ttargetDarName: {}",srcMetadataUrl, srcMetadataVersion, targetDarName);
                         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
                     }
 
