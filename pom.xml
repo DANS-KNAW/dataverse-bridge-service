@@ -1,6 +1,30 @@
+<!--
+
+    Copyright (C) 2018 DANS - Data Archiving and Networked Services (info@dans.knaw.nl)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>nl.knaw.dans.shared</groupId>
+    <artifactId>dans-java-project</artifactId>
+    <version>2.1.5</version>
+  </parent>
+
   <groupId>nl.knaw.dans.bridge.service</groupId>
   <artifactId>bridge-service</artifactId>
   <packaging>jar</packaging>
@@ -16,6 +40,7 @@
     <springfox.version>2.7.0</springfox.version>
     <springboot.dependencies.version>2.1.0.RELEASE</springboot.dependencies.version>
     <springboot.stater.test.version>1.5.3.RELEASE</springboot.stater.test.version>
+
     <saxon.he.version>9.8.0-14</saxon.he.version>
     <hsql.db.version>2.4.1</hsql.db.version>
     <rxjava.version>2.2.0</rxjava.version>
@@ -64,63 +89,7 @@
           </archive>
         </configuration>
       </plugin>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>${mvn.resources.plugin.version}</version>
-        <executions>
-          <execution>
-            <id>copy-config</id>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <encoding>UTF-8</encoding>
-              <outputDirectory>${basedir}/target/config</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>src/main/resources/config</directory>
-                  <filtering>true</filtering>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>${maven.jar.plugin}</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>${bridge.service.main.class}</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>${mvn.assembly.plugin.version}</version>
-        <executions>
-          <execution>
-            <id>make-assembly-zip</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <configuration>
-              <appendAssemblyId>false</appendAssemblyId>
-              <descriptors>
-                <descriptor>src/main/assembly/bridge-service-zip.xml</descriptor>
-              </descriptors>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <version>${mvn.resources.plugin.version}</version>
@@ -147,6 +116,40 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.jar.plugin}</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>${bridge.service.main.class}</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.mycila</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>${license-maven-plugin.version}</version>
+        <configuration>
+          <excludes combine.children="append">
+            <!-- extra excludes needed -->
+            <exclude>dist/**</exclude>
+            <exclude>database/*</exclude>
+            <exclude>bags/*</exclude>
+            <exclude>logs/*</exclude>
+            <exclude>mvnw</exclude>
+            <exclude>.mvn/wrapper/maven-wrapper.properties</exclude>
+            <exclude>.swagger-codegen/*</exclude>
+            <exclude>.swagger-codegen-ignore</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <dependencyManagement>
@@ -161,6 +164,13 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
+    <!-- Needed this hibernate-core, because dans parent pom results in older version: 4.3.11.Final -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.3.7.Final</version>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -296,4 +306,23 @@
       <version>${rxjava.version}</version>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>DANS</id>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <url>http://maven.dans.knaw.nl/</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>DANS</id>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <url>http://maven.dans.knaw.nl/</url>
+    </pluginRepository>
+  </pluginRepositories>
 </project>
