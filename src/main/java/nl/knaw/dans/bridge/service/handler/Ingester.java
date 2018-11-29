@@ -100,7 +100,7 @@ public class Ingester {
     }
 
     private void asyncIngestToDar(IngestData ingestData, String darIri, List<XslTransformer> xslConverterList, IAction action, ArchivingAuditLog archivingAuditLog, ObjectMapper objectMapper) {
-        archivingAuditLog.setState(StateEnum.REGISTERED.toString());
+        archivingAuditLog.setState(StateEnum.IN_PROGRESS.toString());
         archivingAuditlogDao.update(archivingAuditLog);
         Flowable.fromCallable(() -> {
             log.info("Starting ASYNC ingest process using Flowable.fromCallable()");
