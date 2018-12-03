@@ -95,6 +95,23 @@
         <version>${mvn.resources.plugin.version}</version>
         <executions>
           <execution>
+            <id>copy-config</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <encoding>UTF-8</encoding>
+              <outputDirectory>${basedir}/target/config</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/main/resources/config</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
             <id>copy-config-jar</id>
             <phase>install</phase>
             <goals>
