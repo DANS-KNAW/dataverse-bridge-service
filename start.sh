@@ -54,7 +54,7 @@ echo "Starting dataverse bridge Quickstart...."
 echo "Starting bridge service ...."
 nohup java -jar -Xms512M -Xmx2G bridge-service.jar >> /dev/null &
 echo "Starting ... "
-( tail -f -n0  logs/bridge-service.log & ) | grep -q "Started BridgeService"
+( tail -f -n0  ./logs/bridge-service.log & ) | grep -q "Started BridgeService"
 echo "Bridge service is started... "
 echo "Now, you can open your favourite browser and visit the bridge API: http://localhost:8592/api/v1"
 
