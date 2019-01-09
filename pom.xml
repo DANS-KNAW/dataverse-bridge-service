@@ -63,7 +63,7 @@
     <maven.build.timestamp.format>yyMMdd_HHmm</maven.build.timestamp.format>
     <buildNumber>${maven.build.timestamp}</buildNumber>
     <timestamp>${maven.build.timestamp}</timestamp>
-    <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
+    <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
   </properties>
   <build>
     <finalName>bridge-service</finalName>
