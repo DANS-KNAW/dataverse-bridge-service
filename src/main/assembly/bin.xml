@@ -48,7 +48,7 @@
     <files>
         <file>
             <source>${project.build.directory}/${project.name}.jar</source>
-            <outputDirectory>.</outputDirectory>
+            <outputDirectory>./bin</outputDirectory>
         </file>
     </files>
     <dependencySets>
