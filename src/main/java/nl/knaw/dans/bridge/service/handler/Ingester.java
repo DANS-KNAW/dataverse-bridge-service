@@ -48,6 +48,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
 @Component
 public class Ingester {
     @Autowired
@@ -76,12 +77,13 @@ public class Ingester {
     }
 
     public ArchivingAuditLog performIngestToDar(boolean syncIngest, IngestData ingestData, String darIri, DarPluginConf darPluginConf, ObjectMapper objectMapper) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        log.info(">>>>>>> Trying ingest to " + ingestData.getDarData().getDarName() + " from url source: " + ingestData.getSrcData().getSrcMetadataUrl());
+        log.debug(">>>>>>> Trying to ingest to " + ingestData.getDarData().getDarName() + " from url source: {} ", ingestData.getSrcData().getSrcMetadataUrl());
         XslSource xs = darPluginConf.getXslSourceList().stream().filter(xslSource -> xslSource.getName().equals(ingestData.getSrcData().getSrcName())).findAny().orElse(null);
         URLClassLoader actionClassLoader = darPluginConf.getActionClassLoader();
+        log.debug("Perform ingesting using {} action class.", darPluginConf.getActionClassName());
         Class actionClass = Class.forName(darPluginConf.getActionClassName(), true, actionClassLoader);
         IAction action = (IAction)actionClass.newInstance();
-        log.info("action: " + action.toString());
+        log.debug("Archiving action: " + action.toString());
         ArchivingAuditLog archivingAuditLog = createNewArchived(ingestData, darIri);
         if (syncIngest) {
             try {
@@ -100,16 +102,17 @@ public class Ingester {
     }
 
     private void asyncIngestToDar(IngestData ingestData, String darIri, List<XslTransformer> xslConverterList, IAction action, ArchivingAuditLog archivingAuditLog, ObjectMapper objectMapper) {
+        log.debug("Ingesting to DAR ({}) using ASYNC method.", darIri);
         archivingAuditLog.setState(StateEnum.IN_PROGRESS.toString());
         archivingAuditlogDao.update(archivingAuditLog);
         Flowable.fromCallable(() -> {
-            log.info("Starting ASYNC ingest process using Flowable.fromCallable()");
+            log.debug("Starting ASYNC ingest process using Flowable.fromCallable()");
             Instant start = Instant.now();
             IResponseData responseDataHolder = ingestToDar(ingestData, darIri, xslConverterList, action, archivingAuditLog);
             Instant finish = Instant.now();
             long timeElapsed = Duration.between(start, finish).getSeconds();
             log.info("The process is done in " + timeElapsed + " seconds.");
-            log.info("#### End of ingest process using Flowable.fromCallable() ####");
+            log.debug("#### End of ingest process using Flowable.fromCallable() ####");
             return responseDataHolder;
         })
                 .subscribeOn(Schedulers.io())
@@ -147,6 +150,7 @@ public class Ingester {
     }
 
     private IResponseData ingestToDar(IngestData ingestData, String darIri, List<XslTransformer> xslConverterList, IAction action, ArchivingAuditLog archivingAuditLog) throws BridgeException {
+        log.debug("Ingesting to DAR ({}) using SYNC method.", darIri);
         String bagDir = env.getProperty("bridge.temp.dir.bags");
         SourceDar sourceDar = null;
         DarData darData = ingestData.getDarData();
@@ -201,7 +205,7 @@ public class Ingester {
     }
 
     private void removeBagit(ArchivingAuditLog archivingAuditLog) {
-        log.info(archivingAuditLog.getBagitDir());
+        log.debug("Removing bagit directory '{}'", archivingAuditLog.getBagitDir());
         if (archivingAuditLog.getBagitDir() !=null) {
             File bagDirToDelete = FileUtils.getFile(archivingAuditLog.getBagitDir());
             File bagZipFileToDelete = FileUtils.getFile(archivingAuditLog.getBagitDir() + ".zip");

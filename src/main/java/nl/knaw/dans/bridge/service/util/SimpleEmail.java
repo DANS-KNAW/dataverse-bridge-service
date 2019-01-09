@@ -36,6 +36,7 @@ public class SimpleEmail {
 
 
     public void sendToAdmin(final String subject, final String message) {
+        LOG.debug("Sending email to admin: {}", env.getProperty("bridge.apps.support.email.send.to"));
         final SimpleMailMessage email = new SimpleMailMessage();
         email.setTo(Objects.requireNonNull(env.getProperty("bridge.apps.support.email.send.to")).split(","));
         email.setSubject(subject);
