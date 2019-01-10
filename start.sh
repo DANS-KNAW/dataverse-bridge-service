@@ -17,6 +17,13 @@
 
 set -e
 #todo: first check whether the service already started, using  curl -X GET 'http://localhost:9285/admin/health'
+if [[ -z "${BRIDGE_HOME}" ]];
+    then
+        echo "BRIDGE_HOME is not set.";
+        exit 1;
+    else
+        echo "BRIDGE_HOME: $BRIDGE_HOME";
+fi
 
 if [ 200 -eq $(curl --write-out '%{http_code}\n' --silent --output /dev/null 'http://localhost:8592/api/v1/index.html') ]
     then
