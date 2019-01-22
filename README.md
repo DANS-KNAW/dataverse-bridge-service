@@ -66,7 +66,7 @@ When Dataverse (or another system) send POST request as described in the Bridge 
 
 The following steps will be executed:
 
-1. Bridge will check whether the given api_key (header) is the same as in the application.properties of Bridge, if doesn't match, response code 4040 will be returned.
+1. Bridge will check whether the given api_key (header) is the same as in the application.properties of Bridge, if doesn't match, response code 403 will be returned.
 2. When skipDarAuthPreCheck (header) is true, Bridge will ask to the given destination DAR validate the given username and password/
 3. Bridge will check the state of the current archiving process (based on srcMetadataUrl and srcMetadataVersion), 
 if is not the case, Bridge will process the archiving based on the given darName.
@@ -98,12 +98,12 @@ Create a json (e.g. dvn.json) file that contains the bridge url and the alias of
             {
                 "group-name": "SWORD",
                 "dar-user-name": "user-a",
-                "dar-user-password": "user-a"
+                "dar-user-password": "user-a-pwd"
             },
             {
                 "group-name": "SWORD-Tilburg",
                 "dar-user-name": "user-b",
-                "dar-user-password": "user-b"
+                "dar-user-password": "user-b-pwd"
             }
         ]
     }]
@@ -118,8 +118,8 @@ __Dataverse Role Setting__
 
 To be able to archive a dataset with the Dataverse Bridge, the following conditions have been set:
 
-* The user should be part of a group named 'SWORD'.
-* The user should have an admin-role for the dataverse that contains the dataset that is going to be archived.
+* The user should be part of a group named 'SWORD' and has to the same name as _group-name_ that defines in the _:DataverseBridgeConf_.
+* The user should have an __admin-role__ for the dataverse that contains the dataset that is going to be archived.
 
 _Configuration_
 
@@ -129,7 +129,7 @@ It is not necessary to give this group permissions (a role) on any dataverse or 
 There are two ways to set up the bridge service. You can use the [Quick start](#bridge-service-quickstart) option, or do it [step by step](#bridge-service-fullstart).
 
 ###### <a name="bridge-service-quickstart"></a>Quick start
-Download [bridge-quickstart](bridge-quickstart.zip), unzip it in a folder.\
+Download [bridge-quickstart](bridge-service.zip), unzip it in a folder.\
 To start run on the terminal _start.sh_.\
 To shutdown, execute _shutdown.sh_ command.
 
@@ -206,7 +206,7 @@ logging.path=./logs
 
 In this directory, you can put your plugin. The plugin itself needs to have a certain structure that is described [here](#bridge-plugin-structure).
 
-![Plugin Directory Structure](readme-imgs/plugin-dir-structure.png "Plugin Directory Structure")
+![Plugin Directory Structure](readme-imgs/plugin-directory-structure.png "Plugin Directory Structure")
 
 
 ##### Starting the application
@@ -232,7 +232,7 @@ _http://localhost:8592/api_
 
 To shutdown the dataverse bridge application:
 ````
-curl -X POST 'http://localhost:8582/api/admin/shutdown
+curl -X POST 'http://localhost:9285/api/admin/shutdown
 ````
 
 ## <a name="bridge-service-docker"></a>Dockerize Bridge Service
@@ -274,7 +274,7 @@ Include this dependency into your pom.xml to obtain the 0.5-SNAPSHOT release ver
 <dependency>
     <groupId>nl.knaw.dans.bridge.plugin.lib</groupId>
     <artifactId>bridge-plugin</artifactId>
-    <version>0.5-SNAPSHOT</version>    
+    <version>1.0</version>    
  </dependency>
 ````
 
@@ -289,7 +289,7 @@ easy.json (json file that describe the plugin, see an example below)
 ![Plugin Directory Structure](readme-imgs/easy-plugin-structure.png "Plugin Directory Structure")
 
 
-An example of *easy.json*
+An example of *easy.json* that is used for achiving from Dataverse and B2Share to EASY
 ```
 {
   "dar-name": "EASY",
@@ -301,18 +301,36 @@ An example of *easy.json*
     "transformer": [
       {
         "xsl-name": "dataset.xml",
-        "xsl-url": "http://localhost:8592/api/v1/xsl/easy/dataverse/dataverseJson-to-easy-dataset.xsl"
+        "xsl-url": "https://raw.githubusercontent.com/ekoi/dataverse-bridge-mappings/fixed-mappings/dist/static/xsl/easy/easy/dataverse/dataverseJson-to-easy-dataset.xsl"
       },
       {
         "xsl-name": "files.xml",
-        "xsl-url": "http://localhost:8592/api/v1/xsl/easy/dataverse/dataverseJson-to-easy-files.xsl"
+        "xsl-url": "https://raw.githubusercontent.com/ekoi/dataverse-bridge-mappings/fixed-mappings/dist/static/xsl/easy/easy/dataverse/dataverseJson-to-easy-files.xsl"
       },
       {
         "xsl-name": "source-files-location",
-        "xsl-url": "http://localhost:8592/api/v1/xsl/easy/dataverse/dataverseJson-to-files-location.xsl"
+        "xsl-url": "https://raw.githubusercontent.com/ekoi/dataverse-bridge-mappings/fixed-mappings/dist/static/xsl/easy/easy/dataverse/dataverseJson-to-files-location.xsl"
       }
     ]
-  }
+  },
+    {
+      "source": "b2share",
+      "transformer": [
+        {
+          "xsl-name": "dataset.xml",
+          "xsl-url": "http://localhost:8592/api/v1/xsl/easy/b2share/b2shareJson-to-easy-dataset.xsl"
+        },
+        {
+          "xsl-name": "files.xml",
+          "xsl-url": "http://localhost:8592/api/v1/xsl/easy/b2share/b2shareJson-to-easy-files.xsl"
+        },
+        {
+          "xsl-name": "source-files-location",
+          "xsl-url": "http://localhost:8592/api/v1/xsl/easy/b2share/b2shareJson-to-files-location.xsl"
+        }
+      ]
+    }
+  ]
 }
 ```
 
