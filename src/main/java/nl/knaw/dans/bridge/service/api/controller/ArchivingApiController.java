@@ -79,7 +79,7 @@ public class ArchivingApiController implements ArchivingApi {
 
     private final HttpServletRequest request;
 
-    @org.springframework.beans.factory.annotation.Autowired
+    @Autowired
     public ArchivingApiController(ObjectMapper objectMapper, HttpServletRequest request) {
         this.objectMapper = objectMapper;
         this.request = request;
@@ -108,6 +108,7 @@ public class ArchivingApiController implements ArchivingApi {
         if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {
+                    log.debug("Entering GET request '/archiving/state' \tsrcMetadataUrl: {} \tsrcMetadataVersion: {} \ttargetDarName: {}", srcMetadataUrl, srcMetadataVersion, targetDarName);
                     ArchivingAuditLog dbArchivingAuditLog = archivingAuditlogDao.getBySrcurlSrcversionTargetiri(srcMetadataUrl, srcMetadataVersion, targetDarName);
                     if (dbArchivingAuditLog == null) {
                         log.error("The following GET request is NOT FOUND for srcMetadataUrl: {}\tsrcMetadataVersion: {}\ttargetDarName: {}",srcMetadataUrl, srcMetadataVersion, targetDarName);
@@ -136,11 +137,12 @@ public class ArchivingApiController implements ArchivingApi {
             produces = { "application/json" },
             consumes = { "application/json" },
             method = RequestMethod.POST)
-    public ResponseEntity<nl.knaw.dans.bridge.service.db.domain.ArchivingAuditLog> ingestToDar(@ApiParam(value = "Dataset object that needs to be added to the Archived's table." ,required=true )  @Valid @RequestBody IngestData ingestData,@ApiParam(value = "" ,required=true) @RequestHeader(value="api_key", required=true) String apiKey,@ApiParam(value = "When the request comes from machine to machine, it is likely doesn't need authentication check of DAR credentials before ingest data." ) @RequestHeader(value="skipDarAuthPreCheck", required=false) Boolean skipDarAuthPreCheck,@ApiParam(value = "By default, the archiving process is done using async process. However some process need in a scync way." ) @RequestHeader(value="sync", required=false) Boolean sync) {
+    public ResponseEntity<ArchivingAuditLog> ingestToDar(@ApiParam(value = "Dataset object that needs to be added to the Archived's table." ,required=true )  @Valid @RequestBody IngestData ingestData, @ApiParam(value = "" ,required=true) @RequestHeader(value="api_key", required=true) String apiKey, @ApiParam(value = "When the request comes from machine to machine, it is likely doesn't need authentication check of DAR credentials before ingest data." ) @RequestHeader(value="skipDarAuthPreCheck", required=false) Boolean skipDarAuthPreCheck, @ApiParam(value = "By default, the archiving process is done using async process. However some process need in a scync way." ) @RequestHeader(value="sync", required=false) Boolean sync) {
         String errorMessage = "";
         if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {
+                    log.debug("Entering POST request '/archiving' \tapiKey: {} \tingestData: {}", apiKey, ingestData);
                     String appsPropSrcNameApikey = env.getProperty("bridge.apikey.of.src.name." + ingestData.getSrcData().getSrcName().toLowerCase());
                     if (appsPropSrcNameApikey == null ||  !appsPropSrcNameApikey.equals(apiKey)) {
                         log.error("src.name property in the application properties is null or its value is not equal with apikey");
@@ -152,10 +154,12 @@ public class ArchivingApiController implements ArchivingApi {
                         String darIri = darPluginConf.get().getDarIri().toString();
                         log.debug("darIri: " + darIri);
                         if(skipDarAuthPreCheck ==null || !skipDarAuthPreCheck.booleanValue()) {
+                            log.debug("Validate the given target DAR credentials.");
                             int statusCode = checkCredentials(darIri
                                     , ingestData.getDarData().getDarUsername()
                                     , ingestData.getDarData().getDarPassword()
                                     , env.getProperty("bridge.dar.credentials.checking.timeout", Integer.class));
+                            log.debug("Status code of target DAR validation is {}", statusCode);
                             switch (statusCode) {
                                 case org.apache.http.HttpStatus.SC_REQUEST_TIMEOUT:
                                     return new ResponseEntity<>(HttpStatus.REQUEST_TIMEOUT);
@@ -168,6 +172,7 @@ public class ArchivingApiController implements ArchivingApi {
                                 , ingestData.getSrcData().getSrcMetadataVersion()
                                 , ingestData.getDarData().getDarName());
                         if (dbArchivingAuditLog != null) {
+                            log.debug("Existing archived of archiving process is in progres.");
                             //existing archived or archiving is in progress
                             return new ResponseEntity<>(getObjectMapper().get().readValue(objectMapper.writeValueAsString(dbArchivingAuditLog), ArchivingAuditLog.class), HttpStatus.OK);
                         }
