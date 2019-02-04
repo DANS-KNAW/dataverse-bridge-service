@@ -6,6 +6,9 @@
 
 The bridge service was developed in order to transfer datasets from a Dataverse instance to another Digital Archive Repository. At [DANS](https://dans.knaw.nl), we will use the bridge to transfer datasets from [DataverseNL](https://dataverse.nl) to our long-term archive called [EASY](https://easy.dans.knaw.nl/ui/home). The transfer is done by using the [SWORD](http://swordapp.org/) protocol (v2.0). 
 [DANS](https://dans.knaw.nl) created a plug-in for [EASY](https://easy.dans.knaw.nl/ui/home), but it is possible to create other plug-ins for the bridge service in order to transfer datasets from Dataverse to a repository of your choice. 
+
+![Bridge Process](readme-imgs/bridge-codegen.png "Bridge Process")
+
 In the sections below more details are provided about:
 
 -	[Architecture](#bridge-architecture)
@@ -14,6 +17,7 @@ In the sections below more details are provided about:
 -   [Containerize It](#bridge-service-docker)
 -	[The EASY bridge plug-in](#bridge-plugin-easy)
 -	[Creating your own plug-in](#creating-plugin)
+-   [Dataverse-EASY Error Handling](#dataverse-easy-error-handling)
 
 
 ## <a name="bridge-architecture"></a>Architecture
@@ -125,6 +129,10 @@ _Configuration_
 
 Create a group 'SWORD' (alias 'SWORD') in the dataverse root. Add the users that should have permission to transfer a dataset to this group.\
 It is not necessary to give this group permissions (a role) on any dataverse or dataset level. It is also not necessary to create a new role for this group.
+
+![sword-group](readme-imgs/sword-group.png "SWORD Group")
+
+
 ## <a name="bridge-service-setting"></a>Setting up the bridge service
 There are two ways to set up the bridge service. You can use the [Quick start](#bridge-service-quickstart) option, or do it [step by step](#bridge-service-fullstart).
 
@@ -338,3 +346,170 @@ An example of *easy.json* that is used for achiving from Dataverse and B2Share t
 The [bridge-plugin-easy](https://github.com/ekoi/bridge-plugin-easy) is the implementation of a bridge-plugin for ingesting data to the [EASY](https://easy.dans.knaw.nl/ui/home) archive. This plugin transforms the dataverse metadata file in DDI format into the required metadata files by EASY; ‘dataset.xml’ and ‘files.xml’. This is done according to the requirements described in this document: '[Depositing in EASY with SWORD v2.0](https://easy.dans.knaw.nl/doc/sword2.html)' requirements document.
 
 
+## <a name="ataverse-easy-error-handling"></a>Dataverse-EASY Error Handling
+In general, a FAILED indicates a problem on the EASY side, and a REJECTED is a problem on the client side (Bridge).
+In the Dataverse, the error is writen in the darnote column of datasetversion table.
+
+##### FAILED or ERROR
+The darnote column of datasetversion table shows "ERROR"; as in the user interface shows below:
+ ![ERROR](readme-imgs/darnote-error.png "Archived Error")
+- Bridge Admin receive an email
+- Email example:\
+  *Subject: [throwable] on id: ​26*\
+   Content:
+```
+<feed xmlns="​http://www.w3.org/2005/Atom">
+    <id>https://act.easy.dans.knaw.nl/sword2/statement/cb 7c2638-58f9-435c-b72d-65c1955842a0</id>
+    <link
+        href="​https://act.easy.dans.knaw.nl/sword2/statement/cb7c2638-58f9-435c-b72d-65c1955842a 0​"
+        rel="self"/>
+    <title type="text">Deposit cb7c2638-58f9-435c-b72d-65c1955842a0</title>
+    <author>
+        <name>DANS-EASY</name>
+    </author>
+    <updated>2019-01-16T15:09:13.804Z</updated>
+    <category term="FAILED" scheme="​http://purl.org/net/sword/terms/state​" label="State">Failed to
+        ingest /var/opt/dans.knaw.nl/tmp/easy-fedora-dataset-staging/staged-dataset-4443055688733
+        458494/Metadata export from DataverseNL_hdl-12345-​6DVUBL​_json:
+        /var/opt/dans.knaw.nl/tmp/easy-fedora-dataset-staging/staged-dataset-4443055688733
+        458494/Metadata export from DataverseNL_hdl-12345-6DVUBL_json/fo.xml :
+        java.net.ConnectException: Connection refused (Connection refused)​</category>
+    <entry>
+        <content type="multipart/related" src="urn:uuid:cb7c2638-58f9-435c-b72d-65c1955842a0"/>
+        <id>urn:uuid:cb7c2638-58f9-435c-b72d-65c1955842a0</id>
+        <title type="text">Resource urn:uuid:cb7c2638-58f9-435c-b72d-65c1955842a0</title>
+        <summary type="text">Resource Part</summary>
+        <updated>2019-01-16T15:09:18.264Z</updated>
+    </entry>
+</feed>
+
+```
+Action, in the following sequences:
+-  Inform EASY application manager
+-  Delete the record (in this case no 16, see email subject) from auditlog by using thefollowing command on the terminal:
+```
+ curl -X GET --header 'Accept: application/json' 'http://localhost:8592/api/v1/auditlog/16'
+```                 
+   Result:
+```
+"srcMetadataUrl":"https://test.dataverse.nl/api/datasets/export?exporter=dataverse_json&persistentId=hdl:12345/6DVUBL",  "srcAppName": null,  "srcMetadataVersion": "1.7",  "destinationIri": "https://act.easy.dans.knaw.nl/sword2/collection/1",
+```
+   Delete record from auditlog:
+````
+curl -X DELETE --header 'Accept: application/json' --header 'api_key: the api-key(see application.properties)' 'http://localhost:8592/api/v1/auditlog/16'
+````
+- Reset the record of datasetversion (darnote column) that belongs to rejected dataset(see email message above:  6DVUBL) by using the following SQL Query:
+````
+select dv.id, dv.darnote, d.identifier 
+from datasetversion dv, dataset d 
+where dv.dataset_id=d.id and dv.versionnumber=1​ ​ and dv.minorversionnumber=​7​ and d.identifier='​6DVUBL'
+
+````
+*Note*: the *dv.versionnumber* and *dv.minorversionnumber* values come from "srcMetadataVersion": ​"​1.7​" 
+
+The result of the query should retrieve "**ERROR**" as the value of darnote.
+
+Update Query:
+````
+Update datasetversion set darnote = null
+where id in 
+    (select dv.id 
+     from datasetversion dv, dataset d 
+     where dv.dataset_id=d.id and dv.darnote='​ERROR'​ and dv.versionnumber=​1 and dv.minorversionnumber=7​ a​ nd d.identifier=​'6DVUBL')
+````
+##### REJECTED
+The darnote column of datasetversion table shows "REJECTED"; as in the user interface shows below:
+ ![REJECTED](readme-imgs/darnote-rejected.png "Archived Rejected")
+ 
+- Bridge Admin receive an email     
+- Email example:\                   
+  *Subject: [throwable] on id: ​18*\
+````
+<feed xmlns="http://www.w3.org/2005/Atom‌">
+    <id>‌https://act.easy.dans.knaw.nl/sword2/statement/3dff22f1-699b-467e-8409-355a161c759a‌</id>
+    <link href="https://act.easy.dans.knaw.nl/sword2/statement/3dff22f1-699b-467e-8409-355a161c759a"
+        rel="self"/>
+    <title type="text">Deposit 3dff22f1-699b-467e-8409-355a161c759a</title>
+    <author>
+        <name>DANS-EASY</name>
+    </author>
+    <updated>2019-01-16T08:26:31.317Z</updated>
+    <category term="REJECTED" scheme="http://purl.org/net/sword/terms/state" label="State">Rejected
+        3dff22f1-699b-467e-8409-355a161c759a: Bag was not valid according to Profile Version 0.
+        Violations: - [3.1.1] metadata/dataset.xml does not conform to DANS dataset metadata schema:
+        1 exception occurred: org.xml.sax.SAXParseException; lineNumber: 28; columnNumber: 35;
+        cvc-complex-type.2.4.a: Invalid content was found starting with element
+        'dcterms:accessibleToRights'. One of '{"http://easy.dans.knaw.nl/schemas/md/ddm/‌":audience,
+        "http://easy.dans.knaw.nl/schemas/md/ddm/‌":accessRights}' is expected. </category>
+    <entry>
+        <content type="multipart/related" src="urn:uuid:3dff22f1-699b-467e-8409-355a161c759a"/>
+        <id>urn:uuid:3dff22f1-699b-467e-8409-355a161c759a</id>
+        <title type="text">Resource urn:uuid:3dff22f1-699b-467e-8409-355a161c759a</title>
+        <summary type="text">Resource Part</summary>
+        <updated>2019-01-16T08:26:33.679Z</updated>
+    </entry>
+</feed>
+
+````
+*Remark*: Shouldn't happen on production since it is a mapping problem.
+
+Action: 
+- See the following line in the email content:
+````
+metadata/dataset.xml does not conform to DANS dataset metadata schema: 1 exception occurred: org.xml.sax.SAXParseException; lineNumber: 28; columnNumber: 35; cvc-complex-type.2.4.a: Invalid content was found starting with element 'dcterms:accessibleToRights'.
+````
+- Check the bridge-service.log file
+- Evaluate and fix the dataverseJson-to-easy-dataset.xslt file.
+- After xslt is fixed, delete the auditlog record of the failed dataset:
+````
+curl -X GET --header 'Accept: application/json' 'http://localhost:8592/api/v1/auditlog/18'
+````
+Result:
+````
+"srcMetadataUrl": "https://test.dataverse.nl/api/datasets/export?exporter=dataverse_json&persistentId=hdl:12345/XO55Z6",
+"srcAppName": null,
+"srcMetadataVersion": "1.4",
+"destinationIri": "https://act.easy.dans.knaw.nl/sword2/collection/1",
+````
+Delete record (example: number 18) from auditlog:
+````
+curl -X DELETE --header 'Accept: application/json' --header 'api_key: the api-key (see application.properties)' 'http://localhost:8592/api/v1/auditlog/18'
+````
+- Reset the record of datasetversion (darnote column) that belongs to failed dataset (see curl GET result above: XO55Z6‌*) *‌by using the following SQL queries: 
+````
+select dv.id, dv.darnote, d.identifier from datasetversion dv, dataset d where dv.dataset_id=d.id and dv.darnote='FAILED' and dv.versionnumber=1 and dv.minorversionnumber=4 and d.identifier='‌XO55Z6';
+
+Update datasetversion set darnote ='' where id in (select dv.id from datasetversion dv, dataset d where dv.dataset_id=d.id and dv.darnote='FAILED' and dv.versionnumber=1 and dv.minorversionnumber=4 and d.identifier='‌XO55Z6');
+````
+##### OTHER or ERROR
+As in the case of "REJECTED", in the darnote column of datasetversion table shows "ERROR" as in the user interface shows below:
+ ![ERROR](readme-imgs/darnote-error.png "Archived Error")
+ 
+- Bridge Admin receive an email     
+- Email example:                   
+  *Subject: [throwable] on id: 1945*\
+  *Content*:
+````
+[nl.knaw.dans.bridge.plugin.dar.easy.EasyIngestAction] Status = HTTP/1.1 403 Forbidden. Response body follows:<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>
+<title>Error 403 Forbidden</title>
+</head>
+<body>
+<h2>HTTP ERROR: 403</h2>
+<p>Problem accessing /collection/1. Reason:
+<pre>    Forbidden</pre></p>
+<hr /><i><small>Powered by Jetty:// 8.2.0.v20160908</small></i>
+</body>
+</html>
+
+````
+Action:
+- Check the bridge-service.log file
+- Analyse the errors.
+- Check the record of datasetversion of dataset bu using the following sql command:
+````
+select dv.id, dv.darnote, d.identifier 
+from datasetversion dv, dataset d 
+where dv.dataset_id=d.id and dv.versionnumber=(see the log file) and dv.minorversionnumber=(see the logfile) and d.identifier='(see the logfile)'
+````
