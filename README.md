@@ -116,7 +116,7 @@ Create a json (e.g. dvn.json) file that contains the bridge url and the alias of
 
 
 ```
-curl -X PUT -d '/path-to/dvn.json' http://localhost:8080/api/admin/settings/:DataverseBridgeConf
+curl -X PUT --upload-file '/path-to/dvn.json' http://localhost:8080/api/admin/settings/:DataverseBridgeConf
 ```
 __Dataverse Role Setting__
 
@@ -479,7 +479,7 @@ curl -X DELETE --header 'Accept: application/json' --header 'api_key: the api-ke
 ````
 select dv.id, dv.darnote, d.identifier from datasetversion dv, dataset d where dv.dataset_id=d.id and dv.darnote='FAILED' and dv.versionnumber=1 and dv.minorversionnumber=4 and d.identifier='‌XO55Z6';
 
-Update datasetversion set darnote ='' where id in (select dv.id from datasetversion dv, dataset d where dv.dataset_id=d.id and dv.darnote='FAILED' and dv.versionnumber=1 and dv.minorversionnumber=4 and d.identifier='‌XO55Z6');
+Update datasetversion set darnote = null where id in (select dv.id from datasetversion dv, dataset d where dv.dataset_id=d.id and dv.darnote='FAILED' and dv.versionnumber=1 and dv.minorversionnumber=4 and d.identifier='‌XO55Z6');
 ````
 ##### OTHER or ERROR
 As in the case of "REJECTED", in the darnote column of datasetversion table shows "ERROR" as in the user interface shows below:
